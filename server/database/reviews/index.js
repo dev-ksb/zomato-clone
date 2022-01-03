@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const ReviewSchema = new mongoose.Schema(
+const ReviewSchema = mongoose.Schema(
   {
     food: { type: mongoose.Types.ObjectId, ref: "Foods" },
     restaurant: { type: mongoose.Types.ObjectId, ref: "Restaurants" },
@@ -9,7 +9,12 @@ const ReviewSchema = new mongoose.Schema(
     reviewText: { type: String, required: true },
     isRestaurantReview: Boolean,
     isFoodReview: Boolean,
-    photos: [{ type: mongoose.Types.ObjectId, ref: "Images" }],
+    photos: [
+      {
+        type: mongoose.Types.ObjectId,
+        ref: "Images",
+      },
+    ],
   },
   {
     timestamps: true,

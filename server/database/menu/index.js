@@ -2,24 +2,28 @@ import mongoose from "mongoose";
 
 const MenuSchema = new mongoose.Schema(
   {
-    menu: [
+    menus: [
       {
         name: { type: String, required: true },
-        items: [{ type: mongoose.Types.ObjectId, ref: "Foods" }],
+        items: [
+          {
+            type: mongoose.Types.ObjectId,
+            ref: "Foods",
+          },
+        ],
       },
     ],
     recommended: [
-      { type: mongoose.Types.ObjectId, ref: "Foods", unique: true },
+      {
+        type: mongoose.Types.ObjectId,
+        ref: "Foods",
+        unique: true,
+      },
     ],
-    //   restaurant: {
-    //     type: mongoose.Types.ObjectId,
-    //     ref: "Restaurants",
-    //     required: true,
-    //   },
   },
   {
     timestamps: true,
   }
 );
 
-export const MenuModel = mongoose.model("Menu", MenuSchema);
+export const MenuModel = mongoose.model("Menus", MenuSchema);
