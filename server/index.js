@@ -5,15 +5,23 @@ import db from "./database/connection";
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
+import passport from "passport";
 // API
 import Auth from "./API/Auth";
 
+// google authentication config
+import googleAuthConfig from "./config/google.config";
+
 const zomato = express();
+
+googleAuthConfig(passport);
 
 // middlewares
 zomato.use(cors());
 zomato.use(express.json());
 zomato.use(helmet());
+zomato.use(passport.initialize());
+// zomato.use(passport.session());
 
 // Application Routes
 zomato.use("/api/v1/auth", Auth);
