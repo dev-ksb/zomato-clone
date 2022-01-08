@@ -5,6 +5,9 @@ import passport from "passport";
 // Models
 import { UserModel } from "../../database";
 
+// Validation
+import { validateSignIn, validateSignUp } from "../../validation/auth";
+
 // Create a router
 const Router = express.Router();
 
@@ -17,10 +20,13 @@ const Router = express.Router();
  */
 Router.post("/signup", async (req, res) => {
   try {
-    await UserModel.findByEmailAndPhone(req.body.credentials);
+    const { credentials } = req.body;
+    await validateSignUp(credentials);
+
+    await UserModel.findByEmailAndPhone(credentials);
 
     // save data to DB
-    const newUser = await UserModel.create(req.body.credentials);
+    const newUser = await UserModel.create(credentials);
 
     // generate JWT auth token
     const token = newUser.generateJwtToken();
@@ -40,7 +46,10 @@ Router.post("/signup", async (req, res) => {
  */
 Router.post("/signin", async (req, res) => {
   try {
-    const user = await UserModel.findByEmailAndPassword(req.body.credentials);
+    const { credentials } = req.body;
+    await validateSignIn(credentials);
+
+    const user = await UserModel.findByEmailAndPassword(credentials);
     const token = user.generateJwtToken();
     return res.status(200).json({ token, status: "success" });
   } catch (error) {
