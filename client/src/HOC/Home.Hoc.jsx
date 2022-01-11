@@ -7,7 +7,7 @@ import HomeLayout from "../layouts/Homepage.layout";
 const HomeLayoutHoc = ({ component: Component, path, ...rest }) => {
   return (
     <Routes>
-      <Route {...rest} path="/" element={<HomeLayout />}>
+      <Route {...rest} element={<HomeLayout />}>
         <Route path={path} element={<Component />} />
       </Route>
     </Routes>
