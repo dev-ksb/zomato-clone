@@ -8,7 +8,7 @@ const HomeLayout = () => {
     <>
       <Navbar />
       <FoodTab />
-      <main className="container mx-auto px-4 lg:px-20">
+      <main className="container mx-auto px-4 lg:px-20 sm:mb-20">
         <Outlet />
       </main>
       {/* <footer>Footer</footer> */}
