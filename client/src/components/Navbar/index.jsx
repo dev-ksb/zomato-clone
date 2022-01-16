@@ -67,6 +67,7 @@ function LargeNav() {
   const [user, setUser] = useState({
     fullName: "",
   });
+  const [isArrowDropDown, setIsArrowDropDown] = useState(true);
 
   return (
     <>
@@ -88,8 +89,17 @@ function LargeNav() {
                 type="text"
                 placeholder="Delhi NCR"
                 className="focus:outline-none"
+                onBlur={() => setIsArrowDropDown(true)}
+                onFocus={() => setIsArrowDropDown(false)}
               />
-              <IoMdArrowDropdown className="cursor-pointer" />
+
+              <IoMdArrowDropdown
+                className={`cursor-pointer ${
+                  !isArrowDropDown
+                    ? "transition rotate-180 transform duration-700 ease-in-out"
+                    : "transition rotate-0 transform duration-700 ease-in-out"
+                }`}
+              />
             </div>
             <div className="flex w-full items-center gap-2">
               <RiSearch2Line />
