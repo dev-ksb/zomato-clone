@@ -67,6 +67,7 @@ function LargeNav() {
   const [user, setUser] = useState({
     fullName: "",
   });
+
   const [isArrowDropDown, setIsArrowDropDown] = useState(true);
 
   return (

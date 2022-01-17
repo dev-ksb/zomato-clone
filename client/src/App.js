@@ -13,6 +13,26 @@ function App() {
     <>
       <HomeLayoutHoc component={HomePage} path="/:type" />
       <RestaurantLayoutHoc path="/restaurant/:id" component={RestaurantPage} />
+      <RestaurantLayoutHoc
+        path="/restaurant/:id/overview"
+        component={RestaurantPage}
+      />
+      <RestaurantLayoutHoc
+        path="/restaurant/:id/order-online"
+        component={RestaurantPage}
+      />
+      <RestaurantLayoutHoc
+        path="/restaurant/:id/reviews"
+        component={RestaurantPage}
+      />
+      <RestaurantLayoutHoc
+        path="/restaurant/:id/photos"
+        component={RestaurantPage}
+      />
+      <RestaurantLayoutHoc
+        path="/restaurant/:id/menu"
+        component={RestaurantPage}
+      />
     </>
   );
 }

@@ -1,8 +1,14 @@
 import { useState } from "react";
+import { TiStarOutline } from "react-icons/ti";
+import { RiDirectionLine, RiShareForwardLine } from "react-icons/ri";
+import { BiBookmarkPlus } from "react-icons/bi";
+
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import ImageGrid from "../components/Restaurant/ImageGrid";
+import InfoButton from "../components/Restaurant/InfoButton";
 import RestaurantInfo from "../components/Restaurant/RestaurantInfo";
+import Tabs from "../components/Restaurant/Tabs";
 
 const RestaurantLayout = () => {
   const [restaurant, setRestaurant] = useState({
@@ -34,6 +40,23 @@ const RestaurantLayout = () => {
           cuisine={restaurant?.cuisine}
           address={restaurant?.address}
         />
+        <div className="flex flex-wrap gap-3">
+          <InfoButton isActive>
+            <TiStarOutline /> Add Review
+          </InfoButton>
+          <InfoButton>
+            <RiDirectionLine /> Direction
+          </InfoButton>
+          <InfoButton>
+            <BiBookmarkPlus /> Bookmark
+          </InfoButton>
+          <InfoButton>
+            <RiShareForwardLine /> Share
+          </InfoButton>
+        </div>
+        <div className="my-10">
+          <Tabs />
+        </div>
         <Outlet />
       </main>
     </>
