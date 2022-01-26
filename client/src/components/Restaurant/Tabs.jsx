@@ -7,7 +7,7 @@ const Tab = (props) => {
   return (
     <Link to={`/restaurant/${id}/${props.route}`}>
       <div
-        className={classnames("text-gray-500 relative font-light", {
+        className={classnames("text-gray-500 font-light", {
           "text-zomato-400 font-semibold": props.isActive,
         })}
       >
@@ -51,7 +51,7 @@ const Tabs = () => {
 
   return (
     <>
-      <div className="flex relative items-center pb-4 gap-8 md:gap-20 overflow-x-scroll lg:overscroll-auto border-b-2">
+      <div className="flex sticky top-48 mt-6 z-50 items-center pb-4 gap-8 md:gap-20 overflow-x-scroll lg:overscroll-auto border-b-2 bg-white">
         {tabs.map((tab) => (
           <Tab {...tab} key={tab.route} />
         ))}

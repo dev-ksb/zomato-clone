@@ -33,31 +33,33 @@ const RestaurantLayout = () => {
       <Navbar />
       <main className="container mx-auto mt-10 px-4 lg:px-20 pb-10">
         <ImageGrid images={restaurant.images} />
-        <RestaurantInfo
-          name={restaurant?.name}
-          restaurantRating={restaurant?.restaurantRating || 0}
-          deliveryRating={restaurant?.deliveryRating || 0}
-          cuisine={restaurant?.cuisine}
-          address={restaurant?.address}
-        />
-        <div className="flex flex-wrap gap-3">
-          <InfoButton isActive>
-            <TiStarOutline /> Add Review
-          </InfoButton>
-          <InfoButton>
-            <RiDirectionLine /> Direction
-          </InfoButton>
-          <InfoButton>
-            <BiBookmarkPlus /> Bookmark
-          </InfoButton>
-          <InfoButton>
-            <RiShareForwardLine /> Share
-          </InfoButton>
-        </div>
-        <div className="my-10">
+        <div className="bg-white sticky top-0 z-10">
+          <RestaurantInfo
+            name={restaurant?.name}
+            restaurantRating={restaurant?.restaurantRating || 0}
+            deliveryRating={restaurant?.deliveryRating || 0}
+            cuisine={restaurant?.cuisine}
+            address={restaurant?.address}
+          />
+          <div className="flex flex-wrap gap-3">
+            <InfoButton isActive>
+              <TiStarOutline /> Add Review
+            </InfoButton>
+            <InfoButton>
+              <RiDirectionLine /> Direction
+            </InfoButton>
+            <InfoButton>
+              <BiBookmarkPlus /> Bookmark
+            </InfoButton>
+            <InfoButton>
+              <RiShareForwardLine /> Share
+            </InfoButton>
+          </div>
           <Tabs />
         </div>
-        <Outlet />
+        <div className="my-10 mx-6">
+          <Outlet />
+        </div>
       </main>
     </>
   );

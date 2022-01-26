@@ -73,11 +73,11 @@ function LargeNav() {
   return (
     <>
       <div className="hidden lg:inline container px-20 mx-auto">
-        <div className="gap-4 w-full items-center justify-around flex">
-          <div className="w-16">
+        <div className="gap-4 w-full items-center justify-between flex">
+          <div className="w-24">
             <img
               src="https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png"
-              alt=""
+              alt="logo"
               className="w-full h-full"
             />
           </div>
